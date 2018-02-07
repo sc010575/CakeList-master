@@ -9,23 +9,7 @@
 import Foundation
 import UIKit
 
-//@objc public class CakeViewModel: NSObject {
-//    
-//    var title:String?
-//    var desc:String?
-//    var image:String?
-//    
-//    
-//}
-@objc public class TestCake: NSObject {
-    
-   @objc var title:String?
-    var desc:String?
-    var image:String?
-
-}
-
-public typealias SearchComplete = (Bool) -> Void
+public typealias LoadingComplete = (Bool) -> Void
 
 public class DownloadService:NSObject {
 
@@ -38,15 +22,8 @@ public class DownloadService:NSObject {
     private var dataTask: URLSessionDataTask? = nil
     @objc var state: State = .notSearchedYet
     @objc var cakeLists = [Cake]()
-    
-  @objc public func testFunc() {
-        
-        print("Hello")
-    self.performSearch { success in
-        print("Downloaded")
-    }
-    }
-   @objc public func performSearch(with completion: @escaping SearchComplete) {
+
+    @objc public func performLoadJSON(with url:String ,completion: @escaping LoadingComplete) {
         dataTask?.cancel()
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         
@@ -54,33 +31,28 @@ public class DownloadService:NSObject {
         var success = false
         state = .loading
         
-        let url = "https://gist.githubusercontent.com/hart88/198f29ec5114a3ec3460/raw/8dd19a88f9b8d24c23d9960f3300d0c917a4f07c/cake.json"
-        
-        
         guard let finalUrl = URL(string: url) else {
             return completion(success)
             
         }
         let session = URLSession.shared
-        
-        
         dataTask = session.dataTask(with: finalUrl, completionHandler: {
             data, response, error in
             var newState = State.notSearchedYet
-            // Was the search cancelled?
+            // Was the download cancelled?
             if let error = error as NSError?, error.code == -999 {
                 return
             }
             
             if let httpResponse = response as? HTTPURLResponse,
                 httpResponse.statusCode == 200, let data = data {
-                var searchResults = self.parse(data: data)
-                if searchResults.isEmpty {
+                var results = self.parse(data: data)
+                if results.isEmpty {
                     newState = .noResults
                 } else {
-                    searchResults.sort(by: <)
+                    results.sort(by: <)
                     newState = .results
-                    self.cakeLists = searchResults
+                    self.cakeLists = results
                 }
                 success = true
             }

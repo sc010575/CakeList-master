@@ -39,6 +39,7 @@
 		C51EEC1C202A7D4100B2DB69 /* LoadingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingCell.xib; sourceTree = "<group>"; };
 		C51EEC1D202A7D4100B2DB69 /* NothingFoundCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NothingFoundCell.xib; sourceTree = "<group>"; };
 		C51EEC20202A836800B2DB69 /* UIImageView+DownloadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+DownloadImage.swift"; sourceTree = "<group>"; };
+		C59FFFAB202B8AE200B596F0 /* GlobalConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GlobalConstants.h; sourceTree = "<group>"; };
 		DBF17A111B0B648F004E6311 /* Cake List.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cake List.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBF17A151B0B648F004E6311 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DBF17A161B0B648F004E6311 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -103,6 +104,14 @@
 			name = UiResources;
 			sourceTree = "<group>";
 		};
+		C59FFFA8202B899800B596F0 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				C59FFFAB202B8AE200B596F0 /* GlobalConstants.h */,
+			);
+			name = Constants;
+			sourceTree = "<group>";
+		};
 		DBF17A081B0B648F004E6311 = {
 			isa = PBXGroup;
 			children = (
@@ -127,6 +136,7 @@
 				DBF17A241B0B648F004E6311 /* Images.xcassets */,
 				DBF17A181B0B648F004E6311 /* AppDelegate.h */,
 				DBF17A191B0B648F004E6311 /* AppDelegate.m */,
+				C59FFFA8202B899800B596F0 /* Constants */,
 				C59FFFA7202B73B200B596F0 /* UiResources */,
 				C51EEC19202A330E00B2DB69 /* Model */,
 				C51EEC13202A2C8400B2DB69 /* Service */,

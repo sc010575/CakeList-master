@@ -9,9 +9,9 @@
 #import "MasterViewController.h"
 #import "CakeCell.h"
 #import "Cake_List-Swift.h"
+#import "GlobalConstants.h"
 
 @interface MasterViewController ()
-@property (strong, nonatomic) NSArray *objects;
 @property (strong, nonatomic) DownloadService *downloadService;
 @end
 
@@ -20,10 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self registerNibs];
-    self.downloadService =[DownloadService new];
-    [self.downloadService performSearchWith:^(BOOL success) {
-        [self.tableView reloadData];
-    }];
+    [self loadCakeData];
 }
 #pragma mark - Private Methods
 
@@ -36,6 +33,16 @@
     [self.tableView registerNib:nothingFoundcellNib forCellReuseIdentifier:@"NothingFoundCell"];
 
 }
+
+-(void)loadCakeData {
+    
+    self.downloadService =[DownloadService new];
+    [self.downloadService performLoadJSONWith:CakeJSONUrl completion:^(BOOL success) {
+        [self.tableView reloadData];
+        
+    }];
+}
+
 #pragma mark - Table View
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
@@ -45,7 +52,6 @@
     switch (self.downloadService.state) {
         case StateNotSearchedYet:
             return 0;
-            break;
         case StateLoading:
             return 1;
         case StateNoResults:
@@ -65,7 +71,7 @@
     switch (self.downloadService.state) {
         case StateLoading:
         {
-        UITableViewCell *cell = (UITableViewCell*)[tableView dequeueReusableCellWithIdentifier:@"LoadingCell"];
+            UITableViewCell *cell = (UITableViewCell*)[tableView dequeueReusableCellWithIdentifier:@"LoadingCell"];
 
             return cell;
         }
