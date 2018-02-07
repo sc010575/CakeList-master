@@ -8,16 +8,26 @@
 
 #import "MasterViewController.h"
 #import "CakeCell.h"
+#import "Cake_List-Swift.h"
 
 @interface MasterViewController ()
 @property (strong, nonatomic) NSArray *objects;
+@property (strong, nonatomic) DownloadService *downloadService;
 @end
 
 @implementation MasterViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self getData];
+    
+    UINib *cellNib = [UINib nibWithNibName:@"LoadingCell" bundle:nil];
+    [self.tableView registerNib:cellNib forCellReuseIdentifier:@"LoadingCell"];
+
+    self.downloadService =[DownloadService new];
+    [self.downloadService performSearchWith:^(BOOL success) {
+        [self.tableView reloadData];
+    }];
+ //    [self getData];
 }
 
 #pragma mark - Table View
@@ -26,23 +36,61 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.objects.count;
+    switch (self.downloadService.state) {
+        case StateNotSearchedYet:
+            return 0;
+            break;
+        case StateLoading:
+            return 1;
+        case StateNoResults:
+            return 1;
+        case StateResults:
+            return self.downloadService.cakeLists.count;
+        default:
+            break;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    CakeCell *cell = (CakeCell*)[tableView dequeueReusableCellWithIdentifier:@"Cell"];
     
-    NSDictionary *object = self.objects[indexPath.row];
-    cell.titleLabel.text = object[@"title"];
-    cell.descriptionLabel.text = object[@"desc"];
- 
+    switch (self.downloadService.state) {
+        case StateLoading:
+        {
+        UITableViewCell *cell = (UITableViewCell*)[tableView dequeueReusableCellWithIdentifier:@"LoadingCell"];
+
+            return cell;
+        }
+        case StateNoResults:
+        {
+            UITableViewCell *cell = (UITableViewCell*)[tableView dequeueReusableCellWithIdentifier:@"LoadingCell"];
+            
+            return cell;
+        }
+        case StateResults:
+        {
+            CakeCell *cell = (CakeCell*)[tableView dequeueReusableCellWithIdentifier:@"CakeCell"];
+            
+            // NSDictionary *object = self.objects[indexPath.row];
+            Cake * cake = self.downloadService.cakeLists[indexPath.row];
+            [cell configureCellWith:cake];
+//            cell.titleLabel.text = cake.title;
+//            cell.descriptionLabel.text = cake.description;
+//            NSURL *aURL = [NSURL URLWithString:cake.image];
+//            [cell.cakeImageView loadImageWithUrl:aURL];
+            
+            //    NSURL *aURL = [NSURL URLWithString:object[@"image"]];
+            //    NSData *data = [NSData dataWithContentsOfURL:aURL];
+            //    UIImage *image = [UIImage imageWithData:data];
+            //    [cell.cakeImageView setImage:image];
+              return cell;
+        }
+        default:
+            break;
+    }
     
-    NSURL *aURL = [NSURL URLWithString:object[@"image"]];
-    NSData *data = [NSData dataWithContentsOfURL:aURL];
-    UIImage *image = [UIImage imageWithData:data];
-    [cell.cakeImageView setImage:image];
-    
-    return cell;
+
+    return nil;
+  
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
