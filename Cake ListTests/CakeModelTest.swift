@@ -7,7 +7,7 @@
 //
 
 import XCTest
-import Foundation
+//import Foundation
 @testable import Cake_List
 
 class CakeModelTest: XCTestCase {
@@ -23,10 +23,12 @@ class CakeModelTest: XCTestCase {
     
     func testParsingCake() {
         
-        if let filePath = Bundle.main.path(forResource: "TestCake", ofType: "json"), let data = NSData(contentsOfFile: filePath) {
+        let bundle = Bundle(for:type(of: self))
+        guard let path = bundle.path(forResource: "TestCake", ofType: "json") else { return }
+        let data = NSData(contentsOfFile: path)
             do {
                 let decoder = JSONDecoder()
-                let results = try decoder.decode([Cake].self, from:data as Data)
+                let results = try decoder.decode([Cake].self, from:data! as Data)
                 XCTAssertEqual(results.count, 2)
 
                 } catch {
@@ -34,6 +36,4 @@ class CakeModelTest: XCTestCase {
             }
             
         }
-    }
-    
 }
