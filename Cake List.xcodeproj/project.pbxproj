@@ -12,6 +12,10 @@
 		C51EEC1E202A7D4200B2DB69 /* LoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C51EEC1C202A7D4100B2DB69 /* LoadingCell.xib */; };
 		C51EEC1F202A7D4200B2DB69 /* NothingFoundCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C51EEC1D202A7D4100B2DB69 /* NothingFoundCell.xib */; };
 		C51EEC21202A836800B2DB69 /* UIImageView+DownloadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51EEC20202A836800B2DB69 /* UIImageView+DownloadImage.swift */; };
+		C59FFFAE202BA10A00B596F0 /* MasterViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59FFFAD202BA10A00B596F0 /* MasterViewControllerTest.swift */; };
+		C59FFFB0202BA44100B596F0 /* DownloadServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59FFFAF202BA44100B596F0 /* DownloadServiceTest.swift */; };
+		C59FFFB2202BA8C200B596F0 /* CakeModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59FFFB1202BA8C200B596F0 /* CakeModelTest.swift */; };
+		C59FFFB4202BA92000B596F0 /* TestCake.json in Resources */ = {isa = PBXBuildFile; fileRef = C59FFFB3202BA92000B596F0 /* TestCake.json */; };
 		DBF17A171B0B648F004E6311 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DBF17A161B0B648F004E6311 /* main.m */; };
 		DBF17A1A1B0B648F004E6311 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DBF17A191B0B648F004E6311 /* AppDelegate.m */; };
 		DBF17A1D1B0B648F004E6311 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DBF17A1C1B0B648F004E6311 /* MasterViewController.m */; };
@@ -33,13 +37,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		C51EEC14202A2CAC00B2DB69 /* Cake List-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Cake List-Bridging-Header.h"; sourceTree = "<group>"; };
+		C51EEC14202A2CAC00B2DB69 /* Cake_List-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Cake_List-Bridging-Header.h"; sourceTree = "<group>"; };
 		C51EEC17202A2E2800B2DB69 /* DownloadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadService.swift; sourceTree = "<group>"; };
 		C51EEC1A202A333C00B2DB69 /* Cake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cake.swift; sourceTree = "<group>"; };
 		C51EEC1C202A7D4100B2DB69 /* LoadingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingCell.xib; sourceTree = "<group>"; };
 		C51EEC1D202A7D4100B2DB69 /* NothingFoundCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NothingFoundCell.xib; sourceTree = "<group>"; };
 		C51EEC20202A836800B2DB69 /* UIImageView+DownloadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+DownloadImage.swift"; sourceTree = "<group>"; };
 		C59FFFAB202B8AE200B596F0 /* GlobalConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GlobalConstants.h; sourceTree = "<group>"; };
+		C59FFFAD202BA10A00B596F0 /* MasterViewControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewControllerTest.swift; sourceTree = "<group>"; };
+		C59FFFAF202BA44100B596F0 /* DownloadServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadServiceTest.swift; sourceTree = "<group>"; };
+		C59FFFB1202BA8C200B596F0 /* CakeModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CakeModelTest.swift; sourceTree = "<group>"; };
+		C59FFFB3202BA92000B596F0 /* TestCake.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = TestCake.json; sourceTree = "<group>"; };
 		DBF17A111B0B648F004E6311 /* Cake List.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cake List.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBF17A151B0B648F004E6311 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DBF17A161B0B648F004E6311 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -78,7 +86,7 @@
 		C51EEC13202A2C8400B2DB69 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				C51EEC14202A2CAC00B2DB69 /* Cake List-Bridging-Header.h */,
+				C51EEC14202A2CAC00B2DB69 /* Cake_List-Bridging-Header.h */,
 				C51EEC17202A2E2800B2DB69 /* DownloadService.swift */,
 				C51EEC20202A836800B2DB69 /* UIImageView+DownloadImage.swift */,
 			);
@@ -159,7 +167,11 @@
 		DBF17A301B0B648F004E6311 /* Cake ListTests */ = {
 			isa = PBXGroup;
 			children = (
+				C59FFFB3202BA92000B596F0 /* TestCake.json */,
 				DBF17A331B0B648F004E6311 /* Cake_ListTests.m */,
+				C59FFFAD202BA10A00B596F0 /* MasterViewControllerTest.swift */,
+				C59FFFAF202BA44100B596F0 /* DownloadServiceTest.swift */,
+				C59FFFB1202BA8C200B596F0 /* CakeModelTest.swift */,
 				DBF17A311B0B648F004E6311 /* Supporting Files */,
 			);
 			path = "Cake ListTests";
@@ -244,6 +256,7 @@
 					};
 					DBF17A2C1B0B648F004E6311 = {
 						CreatedOnToolsVersion = 6.3;
+						LastSwiftMigration = 0920;
 						TestTargetID = DBF17A101B0B648F004E6311;
 					};
 				};
@@ -284,6 +297,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C59FFFB4202BA92000B596F0 /* TestCake.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,7 +322,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C59FFFAE202BA10A00B596F0 /* MasterViewControllerTest.swift in Sources */,
+				C59FFFB0202BA44100B596F0 /* DownloadServiceTest.swift in Sources */,
 				DBF17A341B0B648F004E6311 /* Cake_ListTests.m in Sources */,
+				C59FFFB2202BA8C200B596F0 /* CakeModelTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -452,7 +469,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.waracle.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Cake List/Cake List-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Cake List/Cake_List-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 			};
@@ -470,7 +487,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.waracle.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Cake List/Cake List-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Cake List/Cake_List-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
@@ -480,6 +497,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -489,9 +507,12 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "Cake ListTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.waracle.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Cake List.app/Cake List";
 			};
 			name = Debug;
@@ -501,14 +522,17 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "Cake ListTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.waracle.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Cake List.app/Cake List";
 			};
 			name = Release;
