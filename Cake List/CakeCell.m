@@ -20,16 +20,16 @@
 
 -(void) prepareForReuse {
     [super prepareForReuse];
-    [self.downloadTask cancel];
-    self.downloadTask = nil;
 }
 
 -(void) configureCellWith:(Cake*) cake {
     
     self.titleLabel.text = cake.title;
     self.descriptionLabel.text = cake.desc;
-    NSURL *aURL = [NSURL URLWithString:cake.image];
-    self.downloadTask = [self.cakeImageView loadImageWithUrl:aURL];
+    if (self.cakeImageView != nil){
+        NSURL *aURL = [NSURL URLWithString:cake.image];
+        self.downloadTask = [self.cakeImageView loadImageWithUrl:aURL];
+    }
 }
 
 

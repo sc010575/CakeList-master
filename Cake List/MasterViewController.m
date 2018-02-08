@@ -37,10 +37,28 @@
 -(void)loadCakeData {
     
     self.downloadService =[DownloadService new];
+    __weak MasterViewController *weakSelf = self;
     [self.downloadService performLoadJSONWith:CakeJSONUrl completion:^(BOOL success) {
-        [self.tableView reloadData];
+        if (!success) {
+            [weakSelf showErrorAlert];
+        }else{
+            [weakSelf.tableView reloadData];
+        }
         
     }];
+}
+
+-(void)showErrorAlert {
+    
+    UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Whoops..."
+            message:@"There was an error accessing the Cake Shop, Please try again."
+            preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+        handler:^(UIAlertAction * action) {}];
+    
+    [alert addAction:defaultAction];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 #pragma mark - Table View
